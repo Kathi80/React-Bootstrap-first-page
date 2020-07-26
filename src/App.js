@@ -3,7 +3,8 @@ import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Navigation from './components/Navigation';
 import Karusel from '../src/components/Karusel';
-import MyJumbotron from "../src/components/MyJumbotron"
+import MyJumbotron from "../src/components/MyJumbotron";
+import Kards from "../src/components/Kards"
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
       <Navigation/>
       <div className="container">
         <MyJumbotron/>
+        <Kards/>
         <Karusel/>
       </div>
      
