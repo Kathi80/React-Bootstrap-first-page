@@ -1,0 +1,9 @@
+.modal-header {
+    background-color: #034413;
+    color: white;
+   
+}
+Form {
+    display: grid;
+    justify-items: center;
+}

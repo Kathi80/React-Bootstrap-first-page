@@ -1,12 +1,17 @@
-import React from 'react';
+import React, {useState} from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Navbar, Nav, NavDropdown } from 'react-bootstrap';
+import { Navbar, Nav, NavDropdown, Modal, Button, Form} from 'react-bootstrap';
+import './nav.css'
 
 const Navigation = () => {
+    const [show, setShow] = useState(false);
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
   return (
     <div>
       <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
-        <Navbar.Brand href="#home">4you Kondor</Navbar.Brand>
+        <Navbar.Brand className="my-logo" href="#home">4you Kondor</Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="mr-auto">
@@ -22,12 +27,32 @@ const Navigation = () => {
           </Nav>
           <Nav>
             <Nav.Link href="#deets">More details</Nav.Link>
-            <Nav.Link eventKey={2} href="#memes">
+            <Nav.Link eventKey={2} href="#memes" onClick={handleShow}>
               Login
             </Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Navbar>
+
+      <Modal show={show} onHide={handleClose}>
+        <Modal.Header closeButton>
+          <Modal.Title>Login</Modal.Title>
+        </Modal.Header>
+        <Form>
+            <Form.Group controlId="formBasicEmail">
+                <Form.Label>Email address</Form.Label>
+                <Form.Control type="email" placeholder="Enter email" />
+            </Form.Group>
+
+            <Form.Group controlId="formBasicPassword">
+                <Form.Label>Password</Form.Label>
+                <Form.Control type="password" placeholder="Password" />
+            </Form.Group>
+            <Button variant="primary" type="submit">
+                Submit
+            </Button>
+        </Form>
+      </Modal>
       
     </div>
   );
